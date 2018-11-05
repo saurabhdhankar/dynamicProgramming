@@ -3,6 +3,7 @@ import java.util.*;
 class Fibonacci {
 	static Map<Integer, Integer> fibMap = new HashMap<Integer, Integer>();
 
+	// This method takes the command line argument as input and provide that perticular fibonacci number
 	public static void main(String[] args) {
 		fibMap.put(1, 0);
 	        fibMap.put(2, 1);
