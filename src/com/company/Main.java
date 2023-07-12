@@ -9,6 +9,6 @@ public class Main {
         ClimbStairs climbStairs = new ClimbStairs();
 //        System.out.println("All ways to reach the Nth Stair : "+ climbStairs.findAllWaysToReachToNthStair(4));
         int[] costs = {1,100,1,1,1,100,1,1,100,1};
-        System.out.println("MinCost to climb the stairs : "+ climbStairs.minCostToClimbStairs(costs));
+        System.out.println("MinCost to climb the stairs : "+ climbStairs.minCostToClimbStairs(costs, 3));
     }
 }

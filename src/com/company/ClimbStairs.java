@@ -48,4 +48,27 @@ public class ClimbStairs {
         return Math.min(prev1+costs[i-1], prev2+costs[i-2]);
     }
 
+
+    /*
+    You are given an integer array cost where cost[i] is the cost of ith step on a staircase.
+    Once you pay the cost, you can climb 1 to K steps at a time.
+    You can either start from the step with index 0, or the step with index 1.
+    Return the minimum cost to reach the top of the floor.
+     */
+    public int minCostToClimbStairs(int[] costs, int k) {
+        int[] minCosts = new int[costs.length+1];
+        for(int i = 0; i <= costs.length; i++) {
+            int minCostI = Integer.MAX_VALUE;;
+            for(int j = 1; j <= k; j++) {
+                if(i-j >= 0) {
+                    minCostI = Math.min(minCostI, minCosts[i-j]+costs[i-j]);
+                } else {
+                    minCostI = 0;
+                }
+            }
+            minCosts[i] = minCostI;
+        }
+        return minCosts[costs.length];
+    }
+
 }
