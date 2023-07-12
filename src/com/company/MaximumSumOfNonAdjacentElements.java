@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -47,6 +48,26 @@ public class MaximumSumOfNonAdjacentElements {
             maxSum = Math.max(maxSumArray[i][0], maxSumArray[i][1]);
         }
         return  maxSum;
+    }
+
+    // DP : Memoization/Top-Down
+    private int getMaximumSumOfNonAdjacentElements(List<Integer> nums) {
+        int[] maxSumAtIndex = new int[nums.size()];
+        Arrays.fill(maxSumAtIndex, Integer.MIN_VALUE);
+        return getMaximumSumOfNonAdjacentElements(nums, maxSumAtIndex, nums.size()-1);
+    }
+
+    private int getMaximumSumOfNonAdjacentElements(List<Integer> nums, int[] maxSumAtIndex, int ind) {
+        if(ind < 0) return 0;
+        if(ind == 0) return 0;
+
+        if(maxSumAtIndex[ind] == Integer.MIN_VALUE) {
+            int currItemPicked = nums.get(ind) + getMaximumSumOfNonAdjacentElements(nums, maxSumAtIndex, ind-2);
+            int currItemNotPicked = getMaximumSumOfNonAdjacentElements(nums, maxSumAtIndex, ind-1);
+
+            maxSumAtIndex[ind] = Math.max(currItemPicked, currItemNotPicked);
+        }
+        return maxSumAtIndex[ind];
     }
 
 
