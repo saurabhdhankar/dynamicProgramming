@@ -1,10 +1,16 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
-        NinjaTraining ninjaTraining = new NinjaTraining();
-        int[][] schedule = {{1, 2, 5}, {3, 1, 1}, {3, 3, 3}};
-        System.out.println("Max points for Ninja : "+ ninjaTraining.ninjaTraining(3, schedule));
+        int[][] grid = {{4, 5}, {3, 7}, {2, 4}};
+        NinjaAndHisFriends ninjaAndHisFriends = new NinjaAndHisFriends();
+
+
+        System.out.println("max chocolates: "+ ninjaAndHisFriends.maximumChocolates(3, 2, grid));
     }
 }
